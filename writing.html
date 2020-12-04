@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ben Laufer</title>
+		<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+		<style>
+
+			h1 {
+  			font-size: 50px;
+			}
+
+			smallfont {
+				font-size: 10px;
+			}
+
+			project {
+				background: black;
+				padding: 20px;
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+			}
+
+			body {
+				background: white;
+				color: rgb(0,170,255);
+				font-family: 'Questrial', sans-serif;
+				font-size: 20px;
+				text-align: center;
+				margin: 0;
+			}
+
+			orangetext {
+				color: orange;
+			}
+
+			img {
+				width: 50%;
+				height: 100%;
+			}
+
+			header {
+				background: black;
+				font-size: 20px;
+				padding: 20px;
+			}
+
+			section {
+				background: white;
+				padding: 20px;
+				display: flex;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			switchsection {
+				background: black;
+				padding: 20px;
+				display: flex;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			text {
+
+				padding-left: 20px;
+			}
+
+			footer {
+				background: black;
+				padding: 20px;
+			}
+
+			button {
+				text-decoration: none;
+				background: black;
+				display: inline-block;
+				margin: auto;
+				padding: 20px;
+				font-size: 20px;
+				border: rgb(0,170,255);
+				color: lightblue; /*rgb(0,170,255);*/
+				text-align: center;
+				width: 300px;
+				height: auto;
+				outline:orange;
+			}
+
+			button:link {
+				text-decoration: none;
+				color: lightblue;
+				font-family: 'Questrial', sans-serif;
+			}
+
+
+			#gameContainer {}
+
+			body {
+			  background: #111;
+			  color: #f8f8f8;
+			}
+
+			canvas {
+			  background: #f8f8f8;
+			  padding: 0;
+			  margin: 0 auto;
+			  margin-bottom: 1rem;
+			  display: block;
+			}
+
+			a:link {
+				text-decoration: none;
+				color: lightblue;
+				font-family: 'Questrial', sans-serif;
+			}
+
+			a:visited {
+				text-decoration: none;
+				color: lightblue;
+			}
+
+			a:hover {
+				text-decoration: underline;
+				color: orange;
+			}
+
+			a:active {
+				text-decoration: underline;
+				color: orange;
+			}
+
+		</style>
+
+		<script>
+
+			  let canvas, ctx, gravity, ball, friction
+			  function init () {
+			    canvas = document.getElementById('gameCanvas')
+			    ctx = canvas.getContext('2d')
+
+			    canvas.width = 100
+			    canvas.height = 100
+
+			    gravity = 1
+			    friction = 0.99
+
+			    ball = {
+			      bounce: .99,
+			      radius: 10,
+			      x: canvas.width / 2,
+			      y: canvas.height / 2,
+			      velX: (Math.random() * 15 + 5) * (Math.floor(Math.random() * 2) || -1),
+			      velY: (Math.random() * 15 + 5) * (Math.floor(Math.random() * 2) || -1)
+			    }
+
+			    window.requestAnimationFrame(update)
+			  }
+
+			  function draw () {
+			    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+			    ctx.beginPath()
+			    ctx.fillStyle = 'red'
+			    ctx.arc(
+			      ball.x, ball.y,
+			      ball.radius,
+			      0, Math.PI * 2
+			    )
+			    ctx.fill()
+			  }
+
+			  function update () {
+			    window.requestAnimationFrame(update)
+			    if (ball.y + ball.radius >= canvas.height) {
+			      ball.velY *= -ball.bounce
+			      ball.y = canvas.height - ball.radius
+			      ball.velX *= friction
+			    }
+			    if (ball.y - ball.radius <= 0) {
+			      ball.velY *= -ball.bounce
+			      ball.y = ball.radius
+			      ball.velX *= friction
+			    }
+			    if (ball.x - ball.radius <= 0) {
+			      ball.velX *= -ball.bounce
+			      ball.x = ball.radius
+			    }
+			    if (ball.x + ball.radius >= canvas.width) {
+			      ball.velX *= -ball.bounce
+			      ball.x = canvas.width - ball.radius
+			    }
+			    if (ball.velX < 0.01 && ball.velX > -0.01) {
+			      ball.velX = 0
+			    }
+			    if (ball.velY < 0.01 && ball.velY > -0.01) {
+			      ball.velY = 0
+			    }
+
+			    ball.velY += gravity
+
+			    ball.x += ball.velX
+			    ball.y += ball.velY
+
+			    draw()
+			  }
+
+			  document.addEventListener('DOMContentLoaded', init)
+
+			//}
+
+			function getClicks(){
+				console.log("Retrieving Count Start...");
+				var counts = localStorage.getItem('click-counts');
+
+				if (counts!==null){
+			        var newClick = parseInt(counts);
+			        localStorage.setItem('click-counts', newClick);
+			    }
+			    else{
+			        localStorage.setItem('click-counts', "0");
+			    }
+			    document.getElementById("showCounts").innerHTML = counts;
+			}
+
+			function countClicks(){
+			    console.log("Counting Start...");
+			    var counts = localStorage.getItem('click-counts');
+			    if (counts!==null){
+			        var newClick = parseInt(counts) + 1;
+			        localStorage.setItem('click-counts', newClick);
+			    }
+			    else{
+			        localStorage.setItem('click-counts', "1");
+			    }
+			   document.getElementById("showCounts").innerHTML = localStorage.getItem('click-counts');;
+			 }
+
+		</script>
+
+	</head>
+	<body onload="getClicks()">
+
+		<switchsection>
+			<button href="index.html"> <a href="index.html"><h1><orangetext><b>Ben Laufer</b></orangetext> </h1></a></button>
+				<button><a href="index.html">Home</a></button>
+				<button><a href="bio.html">Bio</a></button>
+				<button><a href='projects.html'>Projects</a></button>
+				<button><a href='writing.html'>Writing</a></button>
+				<button><a href='reading.html'>Reading</a></button>
+
+			<button onclick="countClicks(); init();">
+					<a>Click me (for fun)</a>
+					<br>
+	   				<smallfont>
+						<span id="showCounts"></span>
+					</smallfont>
+					<div id="gameContainer">
+			  			<canvas
+			     		id="gameCanvas"
+			     	width="100"
+			     	height="100"
+			  		/>
+					</div>
+			</button>
+
+		</switchsection>
+
+		<section>
+			<project>
+				<header><b>Benjamin Laufer</b>. "Beyond Validity: Current Auditing Methods for Criminal Risk Assessments Do Not Consider Sequential Feedback Effects". <i>FAccT 2021</i>. Currently under review.</header>
+				<a href="beyond_validity_preprint.pdf">pdf (preprint)</a>	
+			</project>
+		</section>
+
+		<section>
+			<project>
+				<header><b>Benjamin Laufer</b>. "Abandoning Criminal Risk & Recidivism". <i>NeurIPS 2020 Resistance AI Workshop</i>.</header>
+				<a href="Abandoning_Criminal_Risk_and_Recidivism camera_ready.pdf">pdf</a>
+			</project>
+		</section>
+
+		<section>
+			<project>
+				<header><b>Benjamin Laufer</b>. "Modelling Feedback Effects in Repeat-Use Risk Assessments". Working Paper. 2020.</header>
+				<a href="Modeling_Feedback_Effects_in_Repeat_Use_Risk_Assessments_for_website.pdf">pdf (preprint)</a>	
+			</project>
+		</section>
+
+		<section>
+			<project>
+				<header><b>Benjamin Laufer</b> and Dounan Tang. "ROI-based Task Optimization for High-Frequency E-Scooter Fleet Operations" Lime. Advised by Dounan Tang. 2020. </header>
+				<text>[awaiting permissions for release]</text>
+				<br>
+				<!--<a href="ROI_Modelling_Doc.pdf">modelling document</a>-->
+			</project>
+		</section>
+
+
+		<section>
+			<project>
+				<header><b>Benjamin Laufer</b>. "Compounding Injustice: History & Prediction in Carceral Decision Making" Princeton University Senior Thesis. Advised by Miklos Racz and Eduardo Morales. Best Thesis in Urban Studies, Kenneth H. Condit Award for Scholarship and Impact. 2019.</header>
+				<a href="https://arxiv.org/abs/2005.13404">arXiv</a>
+			</project>
+		</section>
+
+		<section>
+			<project>
+				<header><b>Benjamin Laufer</b>. "On Media and Sensation". Paper advised by Thomas Y. Levin. 2019. </header>
+				<a href="media-theory-paper.pdf">pdf</a>
+			</project>
+		</section>
+
+		<section>
+			<project>
+				<header><b>Benjamin Laufer</b>. "Data Analytics and Machine Learning for Environmental Protection: Targeting Air Inspections". Princeton University Junior Paper. Advised by Robert Vanderbei and Daniel Teitelbaum. 2018.</header>
+				<a href="Laufer_Benjamin_EPA_Project.pdf">pdf</a>
+			</project>
+		</section>
+
+		<section>
+			<project>
+				<header>Anna Dong, Benjamin Getraer, Ryan Herbert, <b>Benjamin Laufer</b>, Daniel Petticord, Maria Stahl [equal contribution]. "Controlling Horse Populations in the Western United States". Princeton University Research Project advised by Simon Levin. 2018. </header>
+				<a href="EEB324_Modeling_5-22.pdf">pdf</a>
+			</project>
+		</section>
+
+
+		<footer> 
+			<h3>;)</h3>
+		</footer>
+
+	</body>
+</html>
