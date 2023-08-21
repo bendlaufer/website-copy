@@ -196,6 +196,11 @@
 
 			    window.requestAnimationFrame(update)
 			  }
+			
+			  function flickBall () {
+			    ball.velX += 10 * (Math.floor(Math.random() * 2) || -1)
+			    ball.velY += 10 * (Math.floor(Math.random() * 2) || -1)
+			  }
 
 			  function draw () {
 			    ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -288,7 +293,7 @@
 				<button><a style='color: orange' href='projects.html'>Projects</a></button>
 				<button><a href='writing.html'>Writing</a></button>
 
-			<button onclick="countClicks(); init();">
+			<button onclick="countClicks(); flickBall();">
 					<a>Click me (for fun)</a>
 					<br>
 	   				<smallfont>
