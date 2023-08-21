@@ -143,11 +143,6 @@
 
 			  let canvas, ctx, gravity, ball, friction
 			  function init () {
-			    initializeBall()
-			    window.requestAnimationFrame(update)
-			  }
-
-			  function initializeBall () {
 			    canvas = document.getElementById('gameCanvas')
 			    ctx = canvas.getContext('2d')
 
@@ -165,6 +160,15 @@
 			      velX: (Math.random() * 10 + 4) * (Math.floor(Math.random() * 2) || -1),
 			      velY: (Math.random() * 10 + 4) * (Math.floor(Math.random() * 2) || -1)
 			    }
+				  
+			    /*initializeBall()*/
+				  
+			    window.requestAnimationFrame(update)
+			  }
+
+			  function flickBall () {
+			    ball.velX += 5 * (Math.floor(Math.random() * 2) || -1)
+			    ball.velY += 5 * (Math.floor(Math.random() * 2) || -1)
 			  }
 
 			  function draw () {
@@ -258,7 +262,7 @@
 				<button><a href='projects.html'>Projects</a></button>
 				<button><a href='writing.html'>Writing</a></button>
 
-			<button onclick="countClicks(); initializeBall();">
+			<button onclick="countClicks(); flickBall();">
 					<a>Click me (for fun)</a>
 					<br>
 	   				<smallfont>
