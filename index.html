@@ -36,12 +36,11 @@
 			}
 
 			img {
-				width: 50%;
-				height: 100%;
+				width: 10vw;
 				margin-top: auto;
 				margin-bottom: auto;
-				padding-left: 5px;
-				padding-right: 5px;
+				padding-left: 15px;
+				padding-right: 15px;
 			}
 
 			header {
@@ -62,6 +61,8 @@
 				background: rgb(47,81,86);
 				padding: 20px;
 				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
 				margin-left: auto;
 				margin-right: auto;
 			}
@@ -88,7 +89,6 @@
 				border: rgb(0,170,255);
 				color: lightblue; /*rgb(0,170,255);*/
 				text-align: center;
-				width: 300px;
 				height: auto;
 				outline:orange;
 			}
@@ -100,7 +100,6 @@
 			}
 
 
-			#gameContainer {}
 
 			body {
 			  background: #111;
@@ -137,6 +136,127 @@
 				color: orange;
 			}
 
+			p {
+				text-align: left;
+				width: 33vw;
+				margin: auto;
+				padding: 20px;
+				color: white;
+				font-family: 'Questrial', sans-serif;
+			}
+
+			.header-img {
+				width: 10vw;
+				object-fit: contain;
+				height: 100%;
+			}
+
+			.header-bio {
+				display: flex;
+				flex-direction: column;
+				margin: auto;
+				justify-content: left;
+			}
+
+			.header-name {
+				margin-bottom: 0;
+				width: 33vw;
+				text-align: left;
+				padding-left: 0;
+				padding-bottom: 0;
+			}
+
+			.bio-text {
+				max-width: 31vw;
+				padding-left: 0;
+				float: left;
+			}
+
+			.header-name h1 {
+				margin: 0;
+			}
+
+			svg {
+				margin-top: 4px;
+			}
+
+			h1 {
+  			font-size: 50px;
+			}
+
+			smallfont {
+				font-size: 10px;
+			}
+
+			project {
+				background: rgb(47,81,86);
+				padding: 20px;
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+
+			}
+
+			img {
+				width: 50%;
+				height: 100%;
+				margin-top: auto;
+				margin-bottom: auto;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+
+			/*.parent {
+  				display: flex;
+  				justify-content: center;
+  				align-items: center;
+			}*/
+
+			.container {
+			  height: 200px;
+			  position: relative;
+			  border: 3px solid green;
+			}
+
+			.center {
+			  margin: 0;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  -ms-transform: translate(-50%, -50%);
+			  transform: translate(-50%, -50%);
+			}
+
+			div.hr-line {
+				background: white;
+			    position: relative;
+			    width: 100%;
+			    border-bottom: 1px solid #7A7A7A;
+			}
+
+			header {
+				background: rgb(47,81,86);
+				font-size: 20px;
+				padding: 20px;
+			}
+
+			section {
+				background: white;
+				padding: 20px;
+				display: flex;
+				margin-left: auto;
+				margin-right: auto;
+				border: rgb(47,81,86);
+			}
+
+			verticalcentersection {
+				/*display: flex;*/
+				background: white;
+				padding: 5px;
+				/*justify-content: center;
+				align-items: center;*/
+			}
 		</style>
 
 		<script>
@@ -254,11 +374,18 @@
 	<body onload="getClicks()">
 
 		<switchsection>
-			<button href="index.html"> <a href="index.html"><h1><orangetext><b>Ben Laufer</b></orangetext> </h1></a></button>
-				<button><a style='color: orange' href="index.html">Home</a></button>
-				<button><a href="bio.html">Bio</a></button>
-				<button><a href='projects.html'>Projects</a></button>
-				<button><a href='writing.html'>Writing</a></button>
+			<a href="/"><img class="header-img" src="main_photo.jpg"></a>
+				<div class="header-bio">
+					<button class="header-name" href="index.html"> <a href="index.html"><h1><orangetext><b>Ben Laufer</b></orangetext> </h1></a></button>
+					<p class="bio-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ornare turpis vitae vestibulum. <a href="about.html">Full bio→</a></p>
+				</div>
+				<button><a href="https://twitter.com/BenDLaufer">Twitter</a></button>
+				<button><a href="CV_8_18_2023.pdf" target="_blank">CV</a></button>
+				<button>
+					<a class="mail-icon" href="mailto:ben.laufer@gmail.com">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+					</a>
+				</button>
 
 			<button onclick="countClicks(); flickBall();">
 					<a>Click me (for fun)</a>
@@ -280,25 +407,382 @@
 		<div class="hr-line"></div>
 
 		<section>
-			<img src="main_photo.jpg">
-			<header>
-				<h1>
-					Hello! Welcome to my website.<!--My interests-->
-				</h1>
-					<h2>
-					<!--
-					Mathematics, artificial intelligence, cities, the Internet, governance, computational social science, climate change, operations research, media, science and technology studies, ecology, computers, mobility, ability, decarceration, democracy, lending, capital, surveillance, architecture, Jewish studies, queer studies, oil painting, pottery, photography, embroidery, backpacking, plants, cycling.
-					-->
-					<div></div>
-			<button>
-				<h3><a href="https://www.linkedin.com/in/benjamin-laufer/">Linkedin</a></h3>
-				<h3><a href="https://twitter.com/BenDLaufer">Twitter</a></h3>
-				<h3><a href="https://github.com/bendlaufer">GitHub</a></h3>
-				<h3><a href="CV_8_18_2023.pdf">CV</a></h3>
-			</button>
+			<project>
+				<h1>Fine-Tuning Games</h1>
+				<h3>There is palpable excitement about AI models that are trained, supposedly for “general purpose.” But in order for these technologies to reach the market, they must first be tweaked and fine-tuned for particular, domain-specific use. In this project, we put forward a model of this adaptation process, highlighting the latent strategic dynamics that arise when one entity builds a general technology that other entities may tune and specialize. Our analysis suggests how some domains will or won’t adapt a general-purpose model. Depending on the cost of investment, a domain might either “abstain,” “contribute,” or “free-ride.”</h3>
 
-					</h2>
-				</header>
+				<body>with Jon Kleinberg and Hoda Heidari</body>
+				<br>
+				<br>
+				<a href="https://arxiv.org/pdf/2308.04399.pdf">Paper</a>
+			</project>
+			<img src="fine-tuning-gameplay-3.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+		
+		<section>
+			<project>
+				<h1>Algorithmic Amplification</h1>
+				<h3>A handful of technology companies increasingly control the audiences reached by posts and content on the internet. This reality may create grave problems and leave our society acutely vulnerable. [Image credit: Daniel Herzberg]</h3>
+
+				<body>with Helen Nissenbaum</body>
+				<header>Accepted for publication by a <a href="https://knightcolumbia.org/events/optimizing-for-what-algorithmic-amplification-and-society#:~:text=The%20symposium%2C%20“Optimizing%20for%20What,at%20Columbia%20University%20and%20online.">Knight First Ammendment Institute Essay Series</a> </header>
+				<body>Paper forthcoming</body>
+				<br>
+				<a href="https://www.youtube.com/live/hovy4qS0tbE?feature=share&t=19352">Video</a>
+			</project>
+			<img src="a3884ir1041_webres.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+		
+		<section>
+			<project>
+				<h1>Optimization's Neglected Normative Commitments</h1>
+				<h3>Optimization is offered as a decision-aid to resolve high-stakes, real-world decisions. In this work, we dissect the normative assumptions and commitments that can be implicit in the use of optimization. We point to a number of neglected problem cases and pitfalls that can and do arise.</h3>
+
+				<body>with Tom Gilbert and Helen Nissenbaum</body>
+				<header>Accepted at <a href="https://facctconference.org/2023/acceptedpapers">2023 ACM Conference on Fairness, Accountability, and Transparency (FAccT)</a> </header>
+				<a href="https://arxiv.org/pdf/2305.17465.pdf">Paper</a>
+				<br>
+				<a href="https://youtu.be/GLKhsrLXvdI?t=455">Video</a>
+			</project>
+			<img src="Latest-Optimization-Lifecycle-website.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+		
+		<section>
+			<project>
+				<h1>Equity in City Services</h1>
+				<h3>Every day, cities need to allocate resources and respond to resident needs. They aim to do so efficiently and equitably. Through a partnership with New York City’s Department of Parks and Recreations, we develop methods to test and evaluate whether the city is responding to requests effectively. </h3>
+
+				<body>with Nikhil Garg and Emma Pierson</body>
+				<header>Early work accepted to <a href="https://responsibledecisionmaking.github.io">2022 ICML Workshop on Responsible Decision-Making in Dynamic Environments</a> </header>
+				<a href="https://responsibledecisionmaking.github.io/assets/pdf/papers/28.pdf">Workshop paper</a>
+				<br>
+				<a href="https://drive.google.com/file/d/1rPWNO5Bohoi3-AsBBuxF_jbo5s2KaqHY/view">Video</a>
+				<br>
+				<a href="https://responsibledecisionmaking.github.io/assets/poster/28.pdf">Poster</a>
+			</project>
+			<img src="Tree-Pipeline-5-15-2022.jpg">
+		</section>
+				
+		<div class="hr-line"></div>
+		
+		<section>
+			<project>
+				<h1>Four Years of FAccT</h1>
+				<h3>How can community members in a new scholarly field critically analyze their own research directions, shortcomings, and future prospects? In this work, our team uses reflexive, participatory mixed-methods to understand the borgeoning research topic known as Fairness, Accountability, and Transparency for Socio-technical Systems.</h3>
+
+				<body>with Sameer Jain, A. Feder Cooper, Jon Kleinberg, and Hoda Heidari</body>
+				<header>Accepted to <a href="https://facctconference.org/2022/index.html">2022 ACM Conference on Fairness, Accountability, and Transparency (FAccT)</a> </header>
+				<a href="https://dl.acm.org/doi/10.1145/3531146.3533107">Paper</a>
+				<br>
+				<a href="https://www.youtube.com/watch?v=qXRgORPkC2Y">Video</a>
+			</project>
+			<img src="S2ORC-2.png">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Accountability in an Algorithmic Society</h1>
+				<h3>Artificial intelligence and machine learning technologies make it difficult to establish accountability. In a new paper, we discuss why accountability is important, which barriers exist, and what we can do about it.</h3>
+
+				<body>with A. Feder Cooper, Emmanuel Moss, and Helen Nissenbaum</body>
+				<header>Accepted to <a href="https://facctconference.org/2022/index.html">2022 ACM Conference on Fairness, Accountability, and Transparency (FAccT)</a> </header>
+				<a href="https://dl.acm.org/doi/abs/10.1145/3531146.3533150">Paper</a>
+			</project>
+			<img src="accountability_abstract.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>AI Governance Goals</h1>
+				<h3>High-impact machine learning algorithms, including algorithmic risk-assessments, are trained to predict or achieve some quantifiable metric. Examples include lowering criminal risk scores and recidivism rates. Are these goals the right goals?</h3>
+
+				<body>Personal Project</body>
+				<header>Accepted to <a href="https://sites.google.com/view/resistance-ai-neurips-20/home?authuser=0">NeurIPS Resistance AI Workshop</a> </header>
+				<a href="Abandoning_Criminal_Risk_and_Recidivism camera_ready.pdf">Paper</a>
+				<br>
+				<a href="https://sites.google.com/view/resistance-ai-neurips-20/accepted-papers-and-media?authuser=0">Announcement</a>
+				<br>
+				<a href="NeurIPS Resistance AI Poster.pdf">Poster</a>
+			</project>
+			<img src="abandoning_risk_abstract.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Computer Vision for Helmet Detection</h1>
+				<h3>Bike, scooter and moped sharing companies' biggest challenge is rider safety in car-dominated cities. To encourage riders to wear helmets, we built a computer vision model that can detect whether a rider is wearing a helmet in real time. We can use this feature to motivate helmet-wearing through discounts, the <a href="https://en.wikipedia.org/wiki/Nudge_(book)">nudge</a> effect, or strict requirement (in certain markets). We scraped images from Google, built a Convolutional Neural Network (CNN) using transferred learning with <a href="https://arxiv.org/abs/2004.10934">YOLOv4</a>, and designed and implemented the UI for the Lime app. The model's classification accuracy on a test set was 97.55%.
+				<br>
+				<br>
+				1st place winner in Lime's company-wide Hackathon, December 2020.
+				</h3>
+				<body>With Bohan Zhang, Jianfeng Hu, Nick Dulchin, Adrian Luan, Renjing Yin and Kunmiao Yang @ Lime</body>
+				<br>
+				<br>
+				<a href='https://www.youtube.com/watch?v=W3BrwJ6tAvU'>Demo video</a>
+				<br>
+			</project>
+			<img src="helmet_detection.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+		
+		<section>
+			<project>
+				<h1>Bike and Scooter Fleet Optimization</h1>
+				<h3>Lightweight dockless vehicles are deployed at full battery in the highest-demand locations. Throughout the day, trips bring them to a lower-trip-potential state. When and where should Lime pick up vehicles to complete charging and rebalancing tasks?
+				</h3>
+				<header>Project advised by Dounan Tang @ Lime</header>
+				<!--<a href="ROI_Modelling_Doc.pdf">Model Document</a>-->
+				<a href="https://docs.google.com/document/d/1GkDm4yNnTvx3p5I4oWrgHWMbD3c11us2pW29cvR1DO4/edit">Model Document [internal to Lime]</a>
+				<br>
+				<a href = "https://github.com/limebike/data-ml-models/tree/master/models/juicer-charge-task-autocreation-no-hotspots">Code [internal to Lime]</a>
+				<br>
+				<!--<a href="Charge & Rebalancing Task Autocreation Experiment Plan.pdf">Experiment Design</a>-->
+				<a href="https://docs.google.com/document/d/1TSdssoVR0n9rr5845QRQuoZvDc844ox-ZVfl9Hp8AL8/edit">Experiment Design [internal to Lime]</a>
+				<br>
+				<a href="https://tab.limeinternal.com/#/views/JuicerChargingAutoCreationABTestMonitoringDashboard/KeyMetricsDashboard?:iid=1">Live Experiment Results Dashboard [internal to Lime]</a>
+				<br>
+				<!--<a href="Charge Task Auto-Creation AB Test Readout 6-25.pdf">Experiment Results Document</a>-->
+				<a href="https://docs.google.com/document/d/1hC1Dtf9Qdnx6ASpBy1ut1EZeGcbp-XK09z46p3tCZA0/edit">Experiment Results Document [internal to Lime]</a>
+				<br>
+				<br>
+				<body>Project lifted Lime's overall [revenue-task cost] by an estimated 3.9%.</body>
+				<!--<a href="ROI_Modelling_Doc.pdf">Modelling Document</a>-->
+			</project>
+			<img src="autocreation_image1.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Feedback Effects in Repeated Criminal Decisions</h1>
+				<h3>Algorithmic risk assessment tools are widely used in the United States today to assist pre-trial and sentencing decisions. Current auditing methods are limited in scope, do not have standardized procedures, and (importantly) ignore feedback effects that arise from repeated decision-making. How do we create accountability?</h3>
+
+				<body> Research Advised by Miklos Racz @ Princeton</body>
+				<br>
+				<br>
+				<a href="beyond_validity_preprint.pdf">Conference Paper (preprint). Under Review, Conference on Fairness, Accountability, and Transparency (FAccT ’21). 2021.</a>
+				<br>
+				<br>
+				<a href="Modeling_Feedback_Effects_in_Repeat_Use_Risk_Assessments_for_website.pdf">Workshop Paper (preprint)</a>
+				<br>
+				<a href="https://arxiv.org/abs/2011.14075">ArXiv</a>
+			</project>
+			<img src="FAccT_image.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Swappable Battery Technology for E-vehicle Sharing Systems</h1>
+				<h3>Lime recently launched their first electric vehicles with swappable batteries, so that people do not have to bring vehicles to power sources in order to charge them. How much closer will this technology bring us to zero-carbon travel?</h3>
+				<header>Ongoing work with Lei Xu and Jeh Lokhande @ Lime</header>
+				<a href = "https://www.li.me/second-street/lime-announces-new-paris-swappable-battery-pilot-at-station-f-to-advance-sustainability-of-electric-scooters">Announcement</a>
+				<br>
+				<a href="https://www.wired.com/story/lime-scooter-gen3-design/">Design Article</a>
+				<br>
+				<a href="https://tab.limeinternal.com/#/views/SwappableBatteryLaunchDashboard/KeyPerformanceMetrics?:iid=2">Performance Report [internal to Lime]</a>
+			</project>
+			<img src="swappable_battery.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Automate Lime's A/B Tests</h1>
+				<h3>Supporting randomized A/B tests is fun but the work gets repetitve. I created an automated tool that performs relevant statistical hypothesis tests and reports treatment effects for a number of metrics. The tool supports randomized A/B tests on the vehicle, user, juicer, and switchback (region-day) levels. This was a "10x" project - it enabled much more experiment support and allowed local teams to launch their own experiments. </h3>
+				<header>with Tristan Taru @ Lime</header>
+				<a href="https://docs.google.com/document/d/17OHk7IlZX-JH5KoqCtzfOoTsUO03z-LbJ4V23pZbJkk/edit#heading=h.mg8ankfybjig">Design Document [internal to Lime]</a>
+				<br>
+				<a href="https://tab.limeinternal.com/#/views/ExperimentsDashboard/ExperimentsDashboard/ben.laufer@li.me/051395c6-6ed9-4376-a86d-2b79099cd4d9?:display_count=n&:showVizHome=n&:origin=viz_share_link&:iid=1">Dashboard [internal to Lime]</a>
+			</project>
+			<img src="auto_experiment_dashboard.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Lime's Experimentation Grand Strategy</h1>
+				<h3>To A/B or not to A/B? Lime supports hundreds of randomized A/B tests. It also supports causal impact studies and offline analyses when A/B tests are improper. I helped create briefs on how to design experiments and how to report and interpret experiment results.</h3>
+				<header>with Kamya Jaggadish, Tristan Taru, Dounan Tang, Jeh Lokhande, and Siyi Luo @ Lime</header>
+				<a href="https://medium.com/lime-eng/experimentation-analysis-at-lime-bee846d62dd">Article</a>
+				</project>
+			<img src="Lime_Experiment_image.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>ICE Spreads COVID</h1>
+				<h3>People who spend time in Immigration Detention Facilities are becoming infected with COVID-19. ICE reports case and death counts, but also has transferred or released people with the infection. With UCLA's COVID Behind Bars Research Group, I worked to combine scraped ICE counts with transfer and release information, and systematically report these numbers for open-source research.</h3>
+				<header>With Ishan Nagpal, Theresa Chang, and Sharon Dolovich @ UCLA COVID Behind Bars Data Project</header>
+				<a href="https://law.ucla.edu/academics/centers/criminal-justice-program/ucla-covid-19-behind-bars-data-project">Project Website</a>
+			</project>
+			<img src="COVID_behind_bars.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Computer Vision for Parking Compliance</h1>
+				<h3>When riders finish a ride or employees deploy a fresh scooter, they take a photo of the parking job. Cities need proper vehicle parking so that scooters are not in pedestrians' way. Using our giant photo dataset, we trained and deployed a machine learning model (CNN) to identify improper parking.</h3>
+				<header>With Andrew Xia and Yi Su @ Lime</header>
+				<a href="https://medium.com/lime-eng/using-computer-vision-to-evaluate-scooter-parking-9979a1c3d685">Article</a>
+			</project>
+			<img src="parking_compliance_image.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Bike and Scooter Demand Forecasting</h1>
+				<h3>Most models at Lime use region-wide, 3-week historical averages to estimate a vehicle's revenue for the next day. We can reduce error by training an ML model with a few additional pieces of information (weather, vehicle model, seasonal trend, location, and auto-regressive terms).</h3>
+				<header>Project Advised by Dounan Tang @ Lime</header>
+
+				<a href="https://docs.google.com/document/d/1eeyeJM24SYaeL8U_s9SLP27h-n-XjZlx1_JO6_250fQ/edit">Modelling doc [internal to Lime]</a>
+			</project>
+			<img src="demand_forecasting_lime.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Analysis of NYPD Civilian Complaints</h1>
+				<h3>A lawsuit led to the public release of hundreds of thousands of previously unreported complaints against NYPD officers. A friend and I fast-followed with some stats and basic findings on Twitter.</h3>
+				<header> Personal Project with Nick Dulchin </header>
+				<a href="https://twitter.com/benj_lauf/status/1287949809224232964">Twitter thread with reported statistics</a>
+			</project>
+			<img src="NYPD_civilian_complaints.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>When Twitter Trends Trend: Self-Referential Topics and Internet Virality</h1>
+				<h3>Amid widespread BLM protests in 2020, many took to social media for "Blackout Tuesday" - a day where they posted only a <a href="https://www.theguardian.com/us-news/2020/jun/02/blackout-tuesday-dominates-social-media-millions-show-solidarity-george-floyd">black square</a>. This event spurred significant debate not about any underlying political issue but about the squares themselves. A defining feature of the Internet is its self-referentiality. When are Twitter trends about events, and when do they become about the fact of their own trending status? I am getting familiar with the Twitter API using this topic as my guide.</h3>
+				<header> Personal project </header>
+			</project>
+			<img src="when_twitter_trends_trend_data_visual.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Compounding Injustice: History & Prediction in Carceral Decision Making</h1>
+
+				<h3>Senior thesis project at Princeton. I wrote on pre-trial and sentencing decisions in the U.S. criminal legal system. I used a combination of an original dataset (court dockets scraped from the Philadelphia court system), modelling techniques, and critical analysis to explore compounding feedback effects in the criminal decision process. The work won three graduation honors: 
+				<br>
+				(1) Best undergraduate thesis in Urban Studies [<a href="https://urbanstudies.princeton.edu/2019_URB_Thesis_Prize_Award.pdf">announcement1</a>, <a href="https://orfe.princeton.edu/news/orfe-graduate-benjamin-laufer-19-receives-urban-studies-thesis-prize-award">announcement2</a>]
+				<br>
+				(2) Kenneth H. Condit Graduation Prize for Excellence in Scholarship and Community Impact [<a href="https://orfe.princeton.edu/undergraduate/awards">announcement</a>]
+				<br>
+				(3) Departmental Distinction </h3>
+				<header> Senior Thesis Advised by Miklos Racz and Eduardo Morales @ Princeton </header>
+				<a href="https://arxiv.org/abs/2005.13404">ArXiv</a>
+			</project>
+			<img src="Compounding_Injustice_Map.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Ruminations on Media & Sensation</h1>
+
+				<h3>Gelato shaped like a flower. Slime videos. ASMR. How is the Internet changing the way we sense?</h3>
+
+				<header> Project stemming from coursework, advised by Thomas Y. Levin @ Princeton </header>
+				<a href="media-theory-paper.pdf">Paper</a>
+			</project>
+			<img src="media_theory.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Recursion and Gothic Architecture</h1>
+
+				<h3>Much of gothic architecture was built before computers existed. However, gothic structures exhibit self-similarity on different scales. Mathematicians and Computer Scientists describe this as "fractal" or adhering to "recursive logic." Using just a few lines of code, I design relatively ornate elements of a cathedral.</h3>
+
+				<header> Personal Project @ Princeton </header>
+
+				<a href= 'fractal_facade_website.mp4'>Facade Animation</a>
+				<br>
+				<a href='fractal_window_final_website.mp4'>Window Animation</a>
+			</project>
+			<img src="fractal_window_website_image.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Justice Index, A2J and Partisan State Leanings</h1>
+
+				<h3>The <a href="https://ncforaj.org/">National Center for Access to Justice (NCAJ)</a> created the <a href="https://justiceindex.org/">Justice Index</a>, a quantifiable metric to track state civil legal initiatives and hold government accountable, a la <a href="https://evictionlab.org/">Eviction Lab</a>. Which states perform better than other states, and why? How do these metrics correlate with partisan state leanings, income level, and other census information?</h3>
+
+				<a href="https://justiceindex.org/2016-findings/findings/#site-navigation">Dashboard</a>
+
+			</project>
+			<img src="jiresearch.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Optimizing EPA Clean Air Act Enforcement</h1>
+				<h3>Inspectors visit facilities to check Clean Air Act (CAA) Compliance either periodically or at random. Using public air quality data and historical performance, can an algorithm do better?</h3>
+				<header>Research advised by Elahesadat Naghib and Robert Vanderbei @ Princeton and Daniel Teitelbaum @ EPA</header>
+				<a href="Laufer_Benjamin_EPA_Project.pdf">Paper</a>
+			</project>
+			<img src="EPA_map.jpg">
+		</section>
+
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Controlling Horse Populations in the Western United States</h1>
+				<h3>Feral horse populations are exploding, and the Bureau of Land Management refrains from culling because of its unpopularity. Instead, they gather large number of horses and keep them in barns. From a population dynamics perspective, we find that the current strategy is inadequate and simulate the impacts of a number of proposed alternatives.</h3>
+				<header>Research project stemming from coursework, advised by Simon Levin @ Princeton </header>
+				<a href="EEB324_Modeling_5-22.pdf">Paper</a>
+			</project>
+			<img src="horse_project.jpg">
+		</section>
+		
+		<div class="hr-line"></div>
+
+		<section>
+			<project>
+				<h1>Statistical Methods for Detecting Magnetic Reconnection Events using NASA Spacecraft Data</h1>
+				<h3>During an 8-month research assistantship at <a href="https://www.pppl.gov/">Princeton Plasma Physics Laboratory</a> under Dr. Masaaki Yamada, I implemented a <a href="http://www.issibern.ch/forads/sr-001-08.pdf">minimum variance analysis (MVA)</a> technique to detect <a href="https://mrx.pppl.gov/Physics/physics.html#:~:text=Magnetic%20reconnection%20(henceforth%20called%20%22reconnection,events%20in%20our%20solar%20system.">magnetic reconnection</a> events in space. This work calibrated magnetic recordings from the four spacecraft launched by <a /href="https://mms.gsfc.nasa.gov/">NASA's Magnetospheric Multiscale Mission</a>. From the data I identified ~30 candidates as likely reconnection events, which were further analyzed by the lab. Understanding reconnection is a key part of developing nuclear fusion energy here on earth.</h3> 
+				<header>Research conducted with Amanda Brown. Advised by Masaaki Yamada @ PPPL, 2016-2017</header>
+			</project>
+			<img src="PPPL_website.jpg">
 		</section>
 
 		<footer> 

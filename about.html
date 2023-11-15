@@ -5,7 +5,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 		<style>
 
-			h1 {
+h1 {
   			font-size: 50px;
 			}
 
@@ -35,20 +35,12 @@
 				color: orange;
 			}
 
-			div.hr-line {
-				background: white;
-			    position: relative;
-			    width: 100%;
-			    border-bottom: 1px solid #7A7A7A;
-			}
-
 			img {
-				width: 50%;
-				height: 100%;
+				width: 10vw;
 				margin-top: auto;
 				margin-bottom: auto;
-				padding-left: 5px;
-				padding-right: 5px;
+				padding-left: 15px;
+				padding-right: 15px;
 			}
 
 			header {
@@ -69,6 +61,8 @@
 				background: rgb(47,81,86);
 				padding: 20px;
 				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
 				margin-left: auto;
 				margin-right: auto;
 			}
@@ -76,6 +70,13 @@
 			footer {
 				background: rgb(47,81,86);
 				padding: 20px;
+			}
+
+			div.hr-line {
+				background: white;
+			    position: relative;
+			    width: 100%;
+			    border-bottom: 1px solid #7A7A7A;
 			}
 
 			button {
@@ -88,7 +89,6 @@
 				border: rgb(0,170,255);
 				color: lightblue; /*rgb(0,170,255);*/
 				text-align: center;
-				width: 300px;
 				height: auto;
 				outline:orange;
 			}
@@ -100,7 +100,6 @@
 			}
 
 
-			#gameContainer {}
 
 			body {
 			  background: #111;
@@ -135,6 +134,50 @@
 			a:active {
 				text-decoration: underline;
 				color: orange;
+			}
+
+			p {
+				text-align: left;
+				width: 33vw;
+				margin: auto;
+				padding: 20px;
+				color: white;
+				font-family: 'Questrial', sans-serif;
+			}
+
+			.header-img {
+				width: 10vw;
+				object-fit: contain;
+				height: 100%;
+			}
+
+			.header-bio {
+				display: flex;
+				flex-direction: column;
+				margin: auto;
+				justify-content: left;
+			}
+
+			.header-name {
+				margin-bottom: 0;
+				width: 33vw;
+				text-align: left;
+				padding-left: 0;
+				padding-bottom: 0;
+			}
+
+			.bio-text {
+				max-width: 31vw;
+				padding-left: 0;
+				float: left;
+			}
+
+			.header-name h1 {
+				margin: 0;
+			}
+
+			svg {
+				margin-top: 4px;
 			}
 
 		</style>
@@ -254,11 +297,18 @@
 	<body onload="getClicks()">
 
 		<switchsection>
-			<button href="index.html"> <a href="index.html"><h1><orangetext><b>Ben Laufer</b></orangetext> </h1></a></button>
-				<button><a href="index.html">Home</a></button>
-				<button><a style='color: orange' href="bio.html">Bio</a></button>
-				<button><a href='projects.html'>Projects</a></button>
-				<button><a href='writing.html'>Writing</a></button>
+			<a href="index.html"><img class="header-img" src="main_photo.jpg"></a>
+				<div class="header-bio">
+					<button class="header-name" href="index.html"> <a href="index.html"><h1><orangetext><b>Ben Laufer</b></orangetext> </h1></a></button>
+					<p class="bio-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ornare turpis vitae vestibulum. <a href="about.html">Full bio→</a></p>
+				</div>
+				<button><a href="https://twitter.com/BenDLaufer">Twitter</a></button>
+				<button><a href="CV_8_18_2023.pdf" target="_blank">CV</a></button>
+				<button>
+					<a class="mail-icon" href="mailto:ben.laufer@gmail.com">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+					</a>
+				</button>
 
 			<button onclick="countClicks(); flickBall();">
 					<a>Click me (for fun)</a>
@@ -279,8 +329,7 @@
 
 		<div class="hr-line"></div>
 
-		<section>
-			<img src="main_photo.jpg">
+		<section style="height: calc(80vh - 40px);">
 
 				<header>
 				<h1>
