@@ -24,7 +24,7 @@
 
 			body {
 				background: white;
-				color: rgb(0,170,255);
+				color: #f8f8f8;
 				font-family: 'Questrial', sans-serif;
 				font-size: 20px;
 				text-align: center;
@@ -50,11 +50,12 @@
 			}
 
 			section {
-				background: rgb(47,81,86);
+				background: white;
 				padding: 20px;
 				display: flex;
 				margin-left: auto;
 				margin-right: auto;
+				border: rgb(47,81,86);
 			}
 
 			switchsection {
@@ -97,13 +98,6 @@
 				text-decoration: none;
 				color: lightblue;
 				font-family: 'Questrial', sans-serif;
-			}
-
-
-
-			body {
-			  background: #111;
-			  color: #f8f8f8;
 			}
 
 			canvas {
@@ -155,6 +149,7 @@
 				display: flex;
 				flex-direction: column;
 				margin: auto;
+				margin-left: 20px;
 				justify-content: left;
 			}
 
@@ -177,11 +172,13 @@
 			}
 
 			svg {
-				margin-top: 4px;
+				position: relative;
+				top: 5px;
 			}
 
 			h1 {
-  			font-size: 50px;
+				color: orange;
+  				font-size: 50px;
 			}
 
 			smallfont {
@@ -235,27 +232,49 @@
 			    border-bottom: 1px solid #7A7A7A;
 			}
 
-			header {
-				background: rgb(47,81,86);
-				font-size: 20px;
-				padding: 20px;
-			}
-
-			section {
-				background: white;
-				padding: 20px;
-				display: flex;
-				margin-left: auto;
-				margin-right: auto;
-				border: rgb(47,81,86);
-			}
-
 			verticalcentersection {
 				/*display: flex;*/
 				background: white;
 				padding: 5px;
 				/*justify-content: center;
 				align-items: center;*/
+			}
+
+			#mobile-header-img {
+				display: none;
+			}
+
+			.header-menu {
+				margin-top: auto;
+				margin-bottom: auto;
+			}
+
+			@media only screen and (max-width: 768px) {
+				#desktop-header-img {
+					display: none;
+				}
+
+				#mobile-header-img {
+					display: block;
+				}
+
+				.header-bio {
+					flex-direction: column;
+				}
+
+				.mobile-bio {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					vertical-align: middle;
+					gap: 10px;
+				}
+
+				.header {
+					display: flex;
+					flex-direction: column;
+				}
+
 			}
 		</style>
 
@@ -373,38 +392,45 @@
 	</head>
 	<body onload="getClicks()">
 
-		<switchsection>
-			<a href="/"><img class="header-img" src="main_photo.jpg"></a>
-				<div class="header-bio">
+		<switchsection class="header">
+			<a id="desktop-header-img" href="/"><img class="header-img" src="main_photo.jpg"></a>
+			<div class="header-bio">
+				<div class="mobile-bio">
+					<a id="mobile-header-img" href="/"><img class="header-img" src="main_photo.jpg"></a>
 					<button class="header-name" href="index.html"> <a href="index.html"><h1><orangetext><b>Ben Laufer</b></orangetext> </h1></a></button>
-					<p class="bio-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ornare turpis vitae vestibulum. <a href="about.html">Full bio→</a></p>
 				</div>
-				<button><a href="https://twitter.com/BenDLaufer">Twitter</a></button>
+				<p class="bio-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ornare turpis vitae vestibulum. <a href="about.html">Full bio→</a></p>
+			</div>
+			<div class="header-menu">
+				<button><a href="https://twitter.com/BenDLaufer" target="_blank">Twitter</a></button>
 				<button><a href="CV_8_18_2023.pdf" target="_blank">CV</a></button>
 				<button>
 					<a class="mail-icon" href="mailto:ben.laufer@gmail.com">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
 					</a>
 				</button>
-
-			<button onclick="countClicks(); flickBall();">
-					<a>Click me (for fun)</a>
-					<br>
-	   				<smallfont>
-						<span id="showCounts"></span>
-					</smallfont>
-					<div id="gameContainer">
-			  			<canvas
-			     		id="gameCanvas"
-			     	width="100"
-			     	height="100"
-			  		/>
-					</div>
-			</button>
-
+			</div>
+			<div id="flickBall">
+				<button onclick="countClicks(); flickBall();">
+						<a>Click me (for fun)</a>
+						<br>
+						<smallfont>
+							<span id="showCounts"></span>
+						</smallfont>
+						<div id="gameContainer">
+							<canvas
+							id="gameCanvas"
+							width="100"
+							height="100"
+							/>
+						</div>
+				</button>
+			</div>
 		</switchsection>
 
 		<div class="hr-line"></div>
+
+		<h1>Projects</h1>
 
 		<section>
 			<project>
@@ -537,7 +563,7 @@
 		</section>
 
 		<div class="hr-line"></div>
-		
+
 		<section>
 			<project>
 				<h1>Bike and Scooter Fleet Optimization</h1>
